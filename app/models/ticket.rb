@@ -14,16 +14,26 @@ class Ticket < ApplicationRecord
   end
 
   def build_excavator(excavator_attrs)
-    excavator = Excavator.new(excavator_attrs)
-    excavator.ticket_id = self.id
-    excavator.save
+    binding.pry
+    contact = Contact.create(excavator_attrs[:contact])
+    field_contact = FieldContact.create(excavator_attrs[:field_contact])
+
+    Excavator.create(
+      company_name: excavator_attrs[:company_name],
+      address: excavator_attrs[:address],
+      city: excavator_attrs[:city],
+      zip: excavator_attrs[:zip],
+      type: excavator_attrs[:type],
+      crew_onsite: excavator_attrs[:crew_onsite],
+      contact_id: contact.id,
+      field_contact_id: field_contact.id,
+      ticket_id: self.id
+    )
   end
 
   def build_date_times(date_times_attrs)
-    binding.pry
     ticket_date_time = TicketDateTime.new(date_times_attrs)
     ticket_date_time.ticket_id = self.id
-    binding.pry
     ticket_date_time.save
   end
 end

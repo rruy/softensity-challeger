@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_192754) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_201120) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,10 +66,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_192754) do
     t.string "city"
     t.string "state"
     t.string "zip"
+    t.string "type"
     t.boolean "crew_onsite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "ticket_id"
+    t.bigint "contact_id"
+    t.bigint "field_contact_id"
+    t.index ["contact_id"], name: "index_excavators_on_contact_id"
+    t.index ["field_contact_id"], name: "index_excavators_on_field_contact_id"
     t.index ["ticket_id"], name: "index_excavators_on_ticket_id"
   end
 
@@ -130,6 +135,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_192754) do
   add_foreign_key "contacts", "excavators"
   add_foreign_key "digsite_infos", "tickets"
   add_foreign_key "excavation_infos", "tickets"
+  add_foreign_key "excavators", "contacts"
+  add_foreign_key "excavators", "field_contacts"
   add_foreign_key "excavators", "tickets"
   add_foreign_key "field_contacts", "excavators"
   add_foreign_key "primary_service_area_codes", "service_areas"

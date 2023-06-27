@@ -40,7 +40,21 @@ RSpec.describe Api::TicketsController, type: :controller do
       {
         company_name: 'John Doe CONSTRUCTION',
         address: '555 Some RD',
-        crew_onsite: true
+        crew_onsite: true,
+        city: 'SOME PARK',
+        state: 'ZZ',
+        zip: '55555',
+        type: 'Excavator',
+        contact: {
+            name: 'Johnny Doe',
+            phone: '1115552345',
+            email: 'example@example.com'
+         },
+         field_contact: {
+            name:  'Field Contact',
+            phone: '1235557924',
+            email: 'example@example.com'
+         }
       }
     end
 

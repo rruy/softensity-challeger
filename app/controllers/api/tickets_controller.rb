@@ -4,8 +4,8 @@ class Api::TicketsController < ApplicationController
 
     if ticket.save
       ticket.build_service_area(sa_code_params)
-      ticket.build_excavator(excavator_params)
       binding.pry
+      ticket.build_excavator(excavator_params)
       ticket.build_date_times(date_times_params)
 
       render json: { message: 'Ticket created successfully' }, status: :created
@@ -29,7 +29,10 @@ class Api::TicketsController < ApplicationController
   end
 
   def excavator_params
-    params.require(:excavator).permit(:company_name, :address, :crew_onsite)
+    params.require(:excavator).permit(:company_name, :address, :crew_onsite, :city, :state, :zip, :type,
+      contact: [:name, :phone, :email],
+      field_contact: [:name, :phone, :email]
+    )
   end
 
   def sa_code_params

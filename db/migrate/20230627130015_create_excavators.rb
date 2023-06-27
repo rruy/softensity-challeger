@@ -6,6 +6,7 @@ class CreateExcavators < ActiveRecord::Migration[7.0]
       t.string :city
       t.string :state
       t.string :zip
+      t.string :type
       t.boolean :crew_onsite
 
       t.timestamps
