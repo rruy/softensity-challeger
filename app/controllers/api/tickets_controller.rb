@@ -4,7 +4,6 @@ class Api::TicketsController < ApplicationController
 
     if ticket.save
       ticket.build_service_area(sa_code_params)
-      binding.pry
       ticket.build_excavator(excavator_params)
       ticket.build_date_times(date_times_params)
 

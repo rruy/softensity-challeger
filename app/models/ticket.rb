@@ -14,7 +14,6 @@ class Ticket < ApplicationRecord
   end
 
   def build_excavator(excavator_attrs)
-    binding.pry
     contact = Contact.create(excavator_attrs[:contact])
     field_contact = FieldContact.create(excavator_attrs[:field_contact])
 
