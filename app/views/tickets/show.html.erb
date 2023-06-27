@@ -1,0 +1,12 @@
+<h1>Ticket <%= @ticket.request_number %></h1>
+
+<p>Excavator: <%= @ticket.excavators.first.company_name %></p>
+
+<div id="map"></div>
+
+<script>
+  // Assuming you have a JavaScript library for displaying maps
+  // Replace the code below with the appropriate code for your map library
+  var map = new Map();
+  map.render('<%= @ticket.digsite_info %>', 'map');
+</script>

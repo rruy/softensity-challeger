@@ -1,0 +1,9 @@
+<h1>Tickets</h1>
+
+<ul>
+  <% @tickets.each do |ticket| %>
+    <li>
+      <%= link_to ticket.request_number, ticket_path(ticket) %>
+    </li>
+  <% end %>
+</ul>
