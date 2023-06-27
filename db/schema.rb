@@ -15,18 +15,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_132736) do
   enable_extension "plpgsql"
 
   create_table "additional_service_area_codes", force: :cascade do |t|
-    t.bigint "service_area_id", null: false
-    t.string "SACode"
+    t.bigint "service_area_id"
+    t.string "sa_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["service_area_id"], name: "index_additional_service_area_codes_on_service_area_id"
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.bigint "excavator_id", null: false
-    t.string "Name"
-    t.string "Phone"
-    t.string "Email"
+    t.bigint "excavator_id"
+    t.string "name"
+    t.string "phone"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["excavator_id"], name: "index_contacts_on_excavator_id"
@@ -39,74 +39,74 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_132736) do
     t.text "WellKnownText"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "ticket_id", null: false
+    t.bigint "ticket_id"
     t.index ["ticket_id"], name: "index_digsite_infos_on_ticket_id"
   end
 
   create_table "excavation_infos", force: :cascade do |t|
-    t.string "TypeOfWork"
-    t.string "WorkDoneFor"
-    t.string "ProjectDuration"
-    t.datetime "ProjectStartDate"
-    t.string "Explosives"
-    t.string "UndergroundOverhead"
-    t.string "HorizontalBoring"
-    t.string "Whitelined"
-    t.text "LocateInstructions"
-    t.text "Remarks"
+    t.string "type_of_work"
+    t.string "work_done_for"
+    t.string "project_duration"
+    t.datetime "project_start_date"
+    t.string "explosives"
+    t.string "underground_overhead"
+    t.string "horizontal_boring"
+    t.string "whitelined"
+    t.text "locate_instructions"
+    t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "ticket_id", null: false
+    t.bigint "ticket_id"
     t.index ["ticket_id"], name: "index_excavation_infos_on_ticket_id"
   end
 
   create_table "excavators", force: :cascade do |t|
-    t.string "CompanyName"
-    t.string "Address"
-    t.string "City"
-    t.string "State"
-    t.string "Zip"
-    t.boolean "CrewOnsite"
+    t.string "company_name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.boolean "crew_onsite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "ticket_id", null: false
+    t.bigint "ticket_id"
     t.index ["ticket_id"], name: "index_excavators_on_ticket_id"
   end
 
   create_table "field_contacts", force: :cascade do |t|
-    t.bigint "excavator_id", null: false
-    t.string "Name"
-    t.string "Phone"
-    t.string "Email"
+    t.bigint "excavator_id"
+    t.string "name"
+    t.string "phone"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["excavator_id"], name: "index_field_contacts_on_excavator_id"
   end
 
   create_table "primary_service_area_codes", force: :cascade do |t|
-    t.bigint "service_area_id", null: false
-    t.string "SACode"
+    t.bigint "service_area_id"
+    t.string "sa_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["service_area_id"], name: "index_primary_service_area_codes_on_service_area_id"
   end
 
   create_table "service_areas", force: :cascade do |t|
-    t.bigint "ticket_id", null: false
+    t.bigint "ticket_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ticket_id"], name: "index_service_areas_on_ticket_id"
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.string "RequestNumber"
-    t.string "SequenceNumber"
-    t.string "RequestType"
-    t.string "RequestAction"
-    t.datetime "ResponseDueDateTime"
+    t.string "request_number"
+    t.string "sequence_number"
+    t.string "request_type"
+    t.string "request_action"
+    t.datetime "response_due_date_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "service_area_id", null: false
+    t.bigint "service_area_id"
     t.index ["service_area_id"], name: "index_tickets_on_service_area_id"
   end
 

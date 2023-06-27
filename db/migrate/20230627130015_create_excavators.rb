@@ -1,12 +1,12 @@
 class CreateExcavators < ActiveRecord::Migration[7.0]
   def change
     create_table :excavators do |t|
-      t.string :CompanyName
-      t.string :Address
-      t.string :City
-      t.string :State
-      t.string :Zip
-      t.boolean :CrewOnsite
+      t.string :company_name
+      t.string :address
+      t.string :city
+      t.string :state
+      t.string :zip
+      t.boolean :crew_onsite
 
       t.timestamps
     end
