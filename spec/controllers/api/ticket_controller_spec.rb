@@ -11,6 +11,17 @@ RSpec.describe Api::TicketsController, type: :controller do
         date_times: {
           response_due_date_time: '2011/07/13 23:59:59'
         },
+        ticket_date_times: {
+          request_taken_date_time: '2011/07/02 23:09:38',
+          transmission_date_time: '',
+          legal_date_time: '2011/07/08 07:00:00',
+          response_due_date_time: '2011/07/13 23:59:59',
+          restake_date: '2011/07/21 00:00:00',
+          expiration_date: '2011/07/26 00:00:00',
+          lp_meeting_accept_due_date: '',
+          overhead_begin_date: '',
+          overhead_end_date: ''
+        },
         service_area: {
           primary_service_area_code: {
             sa_code: 'ZZGL103'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_132736) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_192754) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -98,6 +98,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_132736) do
     t.index ["ticket_id"], name: "index_service_areas_on_ticket_id"
   end
 
+  create_table "ticket_date_times", force: :cascade do |t|
+    t.datetime "request_taken_date_time", precision: nil
+    t.datetime "transmission_date_time", precision: nil
+    t.datetime "legal_date_time", precision: nil
+    t.datetime "response_due_date_time", precision: nil
+    t.datetime "restake_date", precision: nil
+    t.datetime "expiration_date", precision: nil
+    t.datetime "lp_meeting_accept_due_date", precision: nil
+    t.datetime "overhead_begin_date", precision: nil
+    t.datetime "overhead_end_date", precision: nil
+    t.bigint "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_ticket_date_times_on_ticket_id"
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.string "request_number"
     t.string "sequence_number"
@@ -118,5 +134,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_132736) do
   add_foreign_key "field_contacts", "excavators"
   add_foreign_key "primary_service_area_codes", "service_areas"
   add_foreign_key "service_areas", "tickets"
+  add_foreign_key "ticket_date_times", "tickets"
   add_foreign_key "tickets", "service_areas"
 end
