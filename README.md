@@ -137,11 +137,12 @@ Don't upload your solution to GitHub or any other publicly accessible website.
 ```
 
 
+
 #### Using the API
 
 ##### For create a new Ticket use this url and params:
 
-Url: http://localhost:3000/api/tickets/1
+Url: https://softensity-challeger.onrender.com/api/tickets/
 
 Method: POST
 
@@ -203,20 +204,23 @@ Payload:
 ```
 
 Output 
-
-422: For invalid payloads
+422: For invalid payloads \n
 200: When created object
 
 
 ##### For list all tickets 
 
-Url: http://localhost:3000/api/tickets
+Url: Url: https://softensity-challeger.onrender.com/api/tickets
 
 Method: GET
+
+![Alt text](relative%20path/print-1.png?raw=true "Output Tickets")
 
 
 #### For return info about especific ticket
 
-Url: http://localhost:3000/api/tickets/1
+Url: Url: https://softensity-challeger.onrender.com/api/tickets//1
 
 Method: GET
+
+![Alt text](relative%20path/print-2.png?raw=true "Output One Ticket ")
