@@ -1,4 +1,6 @@
 class Api::TicketsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
     ticket = Ticket.new(ticket_params)
 
@@ -18,7 +20,9 @@ class Api::TicketsController < ApplicationController
   end
 
   def show
-    render json: Ticket.find(params[:id])
+    @ticket = Ticket.find(params[:id])
+
+    render json: @ticket, include: [:ticket_date_time, :excavator, :excavation_info, :digsite_info]
   end
 
   private
