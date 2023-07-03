@@ -223,4 +223,4 @@ Url: Url: https://softensity-challeger.onrender.com/api/tickets//1
 
 Method: GET
 
-![Alt text](relative%20path/print-2.png?raw=true "Output One Ticket ")
+![Alt text](print-2.png?raw=true "Output One Ticket ")
