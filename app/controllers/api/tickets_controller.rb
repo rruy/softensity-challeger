@@ -16,7 +16,7 @@ class Api::TicketsController < ApplicationController
   end
 
   def index
-    render json: Ticket.all
+    render json: Ticket.all, include: [:ticket_date_time, :excavator, :excavation_info, :digsite_info]
   end
 
   def show
