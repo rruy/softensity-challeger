@@ -135,4 +135,88 @@ Don't upload your solution to GitHub or any other publicly accessible website.
 
 }
 ```
->>>>>>> 11bc634dc773576e7288dbd751c0498b07d1db03
+
+
+#### Using the API
+
+##### For create a new Ticket use this url and params:
+
+Url: http://localhost:3000/api/tickets/1
+
+Method: POST
+
+Payload:
+```
+{
+    "ticket": {
+        "request_number": "09252012-00001",
+        "sequence_number": "2421",
+        "request_type": "Normal",
+        "request_action": "Restake",
+        "date_times": {
+          "response_due_date_time": "2011/07/13 23:59:59"
+        },
+        "ticket_date_times": {
+          "request_taken_date_time": "2011/07/02 23:09:38",
+          "transmission_date_time": "",
+          "legal_date_time": "2011/07/08 07:00:00",
+          "response_due_date_time": "2011/07/13 23:59:59",
+          "restake_date": "2011/07/21 00:00:00",
+          "expiration_date": "2011/07/26 00:00:00",
+          "lp_meeting_accept_due_date": "",
+          "overhead_begin_date": "",
+          "overhead_end_date": ""
+        },
+        "service_area": {
+          "primary_service_area_code": {
+            "sa_code": "ZZGL103"
+          }
+        },
+        "additional_service_area_codes": {
+          "sa_code": ["ZZL01", "ZZL02", "ZZL03"]
+        },
+        "digsite_info": {
+          "well_known_text": "POLYGON((-81.13390268058475 32.07206917625161,-81.14660562247929 32.04064386441295,-81.08858407706913 32.02259853170128,-81.05322183341679 32.02434500961698,-81.05047525138554 32.042681017283066,-81.0319358226746 32.06537765335268,-81.01202310294804 32.078469305179404,-81.02850259513554 32.07963291684719,-81.07759774894413 32.07090546831167,-81.12154306144413 32.08806865844325,-81.13390268058475 32.07206917625161))"
+        }
+      },
+    "excavator": {
+     "company_name": "John Doe CONSTRUCTION",
+        "address": "555 Some RD",
+        "crew_onsite": true,
+        "city": "SOME PARK",
+        "state": "ZZ",
+        "zip": "55555",
+        "type": "Excavator",
+        "contact": {
+            "name": "Johnny Doe",
+            "phone": "1115552345",
+            "email": "example@example.com"
+         },
+         "field_contact": {
+            "name":  "Field Contact",
+            "phone": "1235557924",
+            "email": "example@example.com"
+         }
+    }
+}
+
+```
+
+Output 
+
+422: For invalid payloads
+200: When created object
+
+
+##### For list all tickets 
+
+Url: http://localhost:3000/api/tickets
+
+Method: GET
+
+
+#### For return info about especific ticket
+
+Url: http://localhost:3000/api/tickets/1
+
+Method: GET
