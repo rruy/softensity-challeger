@@ -13,6 +13,14 @@ class Api::TicketsController < ApplicationController
     end
   end
 
+  def index
+    render json: Ticket.all
+  end
+
+  def show
+    render json: Ticket.find(params[:id])
+  end
+
   private
 
   def ticket_params
